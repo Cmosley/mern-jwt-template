@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
+import Users from "../Users/Users"
 import authService from "../../services/authService"
 import "./App.css";
 
@@ -53,6 +54,13 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           )}
+        />
+        <Route 
+          exact
+          path="/users"
+          render={({ history}) =>
+            <Users />
+          }
         />
       </>
     );

@@ -10,13 +10,13 @@ const NavBar = ({ user, handleLogout }) => {
       {user ?
         <>
           <li>Welcome, {user.name}</li>
-          {/* <li><NavLink to="/users">Users</NavLink></li> */}
+          <li><NavLink to="/users">Users</NavLink></li>
           <NavLink to="" onClick={handleLogout}>LOG OUT</NavLink> 
         </>
       :
         <>
           <li><NavLink to="/login">Log In</NavLink></li>
-          {/* <li><NavLink to="/users">Users</NavLink></li> */}
+          <li><NavLink to="/users">Users</NavLink></li>
           <li><NavLink to="/signup">Sign Up</NavLink></li>
         </>
       }
