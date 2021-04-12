@@ -22,7 +22,17 @@ function signup(user) {
   })
 }
 
+function getUser() {
+  return tokenService.getUserFromToken()
+}
+
+function logout() {
+  tokenService.removeToken()
+}
+
 // eslint-disable-next-line
 export default {
-  signup
+  signup,
+  getUser,
+  logout,
 };
