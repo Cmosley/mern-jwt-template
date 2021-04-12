@@ -1,30 +1,24 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = ({ user, handleLogout }) => {
-    return (
-    <>
+  return (
+    <nav className="nav-wrapper">
+      <ul id="nav-mobile" className="right">
       {user ?
-        <nav>
-          <div className="nav-wrapper">
-            <ul id="nav-mobile" className="right">
-              <li className="nav-link">Welcome, {user.name}</li>
-              {/* <li><Link to="/users" className="nav-link">Users</Link></li> */}
-            </ul>
-          </div>
-        </nav>
+        <>
+          <li className="nav-link">Welcome, {user.name}</li>
+          {/* <li><NavLink to="/users" className="nav-link">Users</NavLink></li> */}
+        </>
       :
-        <nav>
-          <div className="nav-wrapper">
-            <ul id="nav-mobile" className="right">
-              <li><Link to="/login" className="nav-link">Log In</Link></li>
-              {/* <li><Link to="/users" className="nav-link">Users</Link></li> */}
-              <li><Link to="/signup" className="nav-link">Sign Up</Link></li>
-            </ul>
-          </div>
-        </nav>
+        <>
+          <li><NavLink to="/login" className="nav-link">Log In</NavLink></li>
+          {/* <li><NavLink to="/users" className="nav-link">Users</NavLink></li> */}
+          <li><NavLink to="/signup" className="nav-link">Sign Up</NavLink></li>
+        </>
       }
-    </>
+      </ul>
+    </nav>
   )
 }
 
