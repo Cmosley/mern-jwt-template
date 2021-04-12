@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   render() {
+    const {user} = this.state
     return (
       <>
         <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
@@ -59,7 +60,7 @@ class App extends Component {
           exact
           path="/users"
           render={({ history}) =>
-            <Users />
+            user ? <Users /> : <Redirect to="/login" />
           }
         />
       </>
