@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import authService from "../../services/authService"
 import "./Login.css";
 
 class LoginPage extends Component {
@@ -15,7 +16,15 @@ class LoginPage extends Component {
   };
 
   handleSubmit = async (e) => {
+    const { history, handleSignupOrLogin } = this.props;
     e.preventDefault();
+    try {
+      await authService.signup(this.state);
+      handleSignupOrLogin()
+      history.push("/");
+    } catch (err) {
+      alert("Invalid Credentials!")
+    }
   };
 
   render() {
