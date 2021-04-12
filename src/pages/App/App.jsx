@@ -17,6 +17,10 @@ class App extends Component {
     this.props.history.push("/");
   };
 
+  handleSignup = () => {
+    this.setState({ user: authService.getUser() })
+  }
+
   render() {
     return (
       <>
@@ -36,6 +40,7 @@ class App extends Component {
           render={({ history }) => (
             <Signup
               history={history}
+              handleSignup={this.handleSignup}
             />
           )}
         />
