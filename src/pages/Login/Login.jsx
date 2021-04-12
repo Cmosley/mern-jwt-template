@@ -19,7 +19,7 @@ class LoginPage extends Component {
     const { history, handleSignupOrLogin } = this.props;
     e.preventDefault();
     try {
-      await authService.signup(this.state);
+      await authService.login(this.state);
       handleSignupOrLogin()
       history.push("/");
     } catch (err) {
